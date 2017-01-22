@@ -105,3 +105,9 @@ input {
     color: $state-danger-text;
   }
 }
+
+ul.user-list li {
+  list-style-type: none;
+  width: 120px;
+  height: 30px;
+}
