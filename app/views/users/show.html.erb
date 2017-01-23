@@ -5,9 +5,11 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
         <br>
+        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
         region: <%= @user.region %>
-
       </h1>
+      <%= link_to "followings", followings_user_path(@user) %>
+      <%= link_to "followers", followers_user_path(@user) %>
     </section>
   </aside>
   <div class="col-md-8">

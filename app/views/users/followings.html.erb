@@ -1,17 +1,22 @@
 <h1>followings list</h1>
 
-<div class="row">
-   <aside class="col-md-4">
+<div class="container">
+   <aside class="col-xs-12 col-md-4">
       <section class="user_info">
          <%= render 'shared/user_info' %>
       </section>
    </aside>
    <div class="col-md-8">
-      <ul class="user-list">
-      <% @followings.each do |user| %>
-         <li><%= gravatar_for(user, size:30) %></li>
-         <li><%= link_to user.name, user_path(user.id) %></li>
-      <% end %>
-      </ul>
+      <div class="row">
+         <ul class="user-list">
+            <h3>フォロー</h3>
+            <% @followings.each do |user| %>
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                  <li><%= gravatar_for(user, size:30) %></li>
+                  <li><%= link_to user.name, user_path(user.id) %></li>
+               </div>
+            <% end %>
+         </ul>
+      </div>
    </div>
 </div>

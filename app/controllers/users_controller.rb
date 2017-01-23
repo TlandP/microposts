@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
+  @@count_followings = 0
+  @@count_followers = 0
 
   def show
     @user = User.find(params[:id])
@@ -40,11 +42,19 @@ class UsersController < ApplicationController
     
   end
   
+
   def followings
     @user = User.find(params[:id])
     @followings = @user.following_users
+    @@count_followings += 1
   end
 
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.follower_users
+    @@count_followers += 1
+  end
+  
   private
 
   def user_params
